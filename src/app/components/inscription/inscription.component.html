@@ -1,0 +1,71 @@
+<!-- Register Section Start -->
+<div class="register-section section mt-90 mb-90">
+  <div class="container">
+      <div class="row">
+
+          <!-- Register -->
+          <div class="col-md-6 col-12 d-flex">
+              <div class="ee-register">
+
+                  <h3>Inscription </h3>
+                  <!-- Register Form -->
+                  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                      <div class="row">
+
+                          <div class="col-12 mb-30">
+                              <input type="text" placeholder="votre Nom"  formControlName="firstname" [ngClass]="{'is-invalid': submitted && f.firstname.errors }">
+                              <div *ngIf="submitted && f.firstname.errors" class="invalid-label">
+                                  <div *ngIf="f.firstname.errors.required">Veuillez votre nom</div>
+                              </div>
+                          </div>
+
+                          <div class="col-12 mb-30">
+                          <input type="text" placeholder="Votre prenom" formControlName="lastname">
+                          <div *ngIf="submitted && f.lastname.errors" class="invalid-label">
+                              <div *ngIf="f.lastname.errors.required">Veuillez entrer votre prenom</div>
+                          </div>
+                        </div>
+
+                          <div class="col-12 mb-30">
+                          <input type="email" placeholder="Votre email" formControlName="email">
+                          <div *ngIf="submitted && f.email.errors" class="invalid-label">
+                              <div *ngIf="f.email.errors.required">Veuillez entrer un email</div>
+                              <div *ngIf="f.email.errors.email">Veuillez entrer un email valide.</div>
+                          </div>
+                       </div>
+
+                          <div class="col-12 mb-30">
+                              <input type="password" placeholder="Enter mot de passe" formControlName="password">
+                              <div *ngIf="submitted && f.password.errors" class="invalid-label">
+                                  <div *ngIf="f.password.errors.required">Veuillez entrer un mot de passe</div>
+                                  <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                              </div>
+                          </div>
+
+                          <div class="col-12 mb-30">
+                              <input type="password" placeholder="Confirmer mot de passe" formControlName="confirmPassword">
+                              <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-label">
+                                  <div *ngIf="f.confirmPassword.errors.required">Veuillez saisir un  mot de passe .</div>
+                                 <div *ngIf="f.confirmPassword.errors.mustMatch">Veuillez saisir à nouveau votre mot de passe .</div>
+                              </div>
+                          </div>
+
+
+                          <div class="col-12"><input type="submit" value="inscription"></div>
+
+                      </div>
+
+                  </form>
+
+              </div>
+          </div>
+
+          <div class="col-md-1 col-12 d-flex">
+
+              <div class="login-reg-vertical-boder"></div>
+
+          </div>
+
+      </div>
+  </div>
+</div>
